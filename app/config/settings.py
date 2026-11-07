@@ -21,6 +21,12 @@ class Settings:
                 
         self.qdrant_url = get_value("QDRANT_URL")
         self.qdrant_api_key = get_value("QDRANT_API_KEY")
+        self.llm_api_key = get_value("OMNIROUTE_API_KEY")
+        self.base_url=get_value("OMNIROUTE_BASE_URL")
+        
+        self.primary_model = get_value("OMNIROUTE_MODEL")
+        self.fallback_model = get_value("FALLBACK_MODEL")
+       
 
 
 
