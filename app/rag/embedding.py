@@ -1,10 +1,10 @@
 
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from app.config.settings import settings
 
 
 def get_embeddings():
-    return GoogleGenerativeAIEmbeddings(
-        model=settings.embedding_model,
-        google_api_key=settings.llm_api_key,
+    return HuggingFaceEmbeddings(
+        model_name=settings.embedding_model,
+        encode_kwargs={"normalize_embeddings": True},
     )

@@ -26,6 +26,8 @@ class Settings:
         
         self.primary_model = get_value("OMNIROUTE_MODEL")
         self.fallback_model = get_value("FALLBACK_MODEL")
+        self.embedding_model = get_value("EMBEDDING_MODEL")
+        self.embedding_dimension = int(get_value("EMBEDDING_DIMENSION"))
        
 
 
