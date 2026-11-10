@@ -1,8 +1,7 @@
 
-from app.rag.retriever import search_all
+from app.rag.retriever import search_collections
 
 
 def retrieve_node(state):
-    documents = search_all(state["question"])
-    # A node returns only the fields it wants to update
+    documents = search_collections(state["question"], state["collections"])
     return {"documents": documents}
