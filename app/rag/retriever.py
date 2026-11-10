@@ -1,12 +1,10 @@
-# Searches the Qdrant collections and returns simple dictionaries.
+
 from langchain_qdrant import QdrantVectorStore
 from app.config.settings import settings
 from app.rag.embedding import get_embeddings
 
-COLLECTIONS = ["licensing_regulations", "health_policy_kpk"]
-
 embeddings = get_embeddings()
-_stores = {}  # keeps opened collections so we don't reconnect every time
+_stores = {}  
 
 
 def get_store(name):
@@ -20,10 +18,10 @@ def get_store(name):
     return _stores[name]
 
 
-def search_all(question, k=3):
-    """Search every collection and return the best chunks, highest score first."""
+def search_collections(question, collections, k=3):
+    """Search only the given collections, best chunks first."""
     found = []
-    for name in COLLECTIONS:
+    for name in collections:
         results = get_store(name).similarity_search_with_score(question, k=k)
         for doc, score in results:
             found.append({
