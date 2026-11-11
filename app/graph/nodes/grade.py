@@ -8,7 +8,9 @@ Question: {question}
 Search results:
 {context}
 
-Do these results contain the information needed to answer the question?
+Do these results contain at least PART of the information needed to answer the question?
+Reply yes if they are clearly on the right topic and contain relevant facts, even if the answer is incomplete.
+Reply no only if they are off-topic or contain nothing useful.
 Reply with ONE word only: yes or no."""
 
 
