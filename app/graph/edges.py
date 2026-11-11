@@ -1,5 +1,7 @@
 
 def route_after_router(state):
-    if state["collections"]:
-        return "retrieve"      
-    return "out_of_scope"       
+    if state["intent"] == "search":
+        return "retrieve"
+    if state["intent"] == "history":
+        return "chat_history"
+    return "out_of_scope"
