@@ -5,6 +5,9 @@ class GraphState(TypedDict, total=False):
     question: str     
     standalone_question:str
     intent:str
+    search_query:str
+    retry_count:int
+    grade:str
     documents: list   
     collections:list 
     answer: str      
