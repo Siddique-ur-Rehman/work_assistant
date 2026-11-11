@@ -6,6 +6,9 @@ Answer the question using ONLY the context below.
 After each fact, cite the source like (file name, page).
 If the context does not contain the answer, say exactly: "I don't know based on the available documents."
 
+Recent conversation:
+{history}
+
 Context:
 {context}
 
@@ -14,11 +17,20 @@ Question: {question}
 
 
 def answer_node(state):
-    # Turn the chunks into one text block, with a label on each
+  
+    history = "\n".join(
+        f"{m.type}: {m.content}" for m in state.get("messages", [])[-6:]
+    ) or "(none)"
+
     context = "\n\n".join(
         f"[{d['source']}, page {d['page']}]\n{d['text']}"
         for d in state["documents"]
     )
-    prompt = PROMPT.format(context=context, question=state["question"])
-    response = get_llm().invoke(prompt)
-    return {"answer": response.content}
+    prompt = PROMPT.format(history=history, context=context, question=state["standalone_question"])
+    answer = get_llm().invoke(prompt).content
+
+    
+    return {
+        "answer": answer,
+        "messages": [("user", state["question"]), ("assistant", answer)],
+    }
