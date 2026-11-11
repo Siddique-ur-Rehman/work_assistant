@@ -16,13 +16,19 @@ Standalone question:"""
 
 def rewrite_node(state):
     messages = state.get("messages", [])
-   
+
     if not messages:
-        return {"standalone_question": state["question"]}
+        standalone = state["question"]         
+    else:
+        history = "\n".join(f"{m.type}: {m.content}" for m in messages[-6:])
+        prompt = REWRITE_PROMPT.format(history=history, question=state["question"])
+        standalone = get_llm().invoke(prompt).content.strip()
+        print(f"[rewrite] '{state['question']}' -> '{standalone}'")
 
-    history = "\n".join(f"{m.type}: {m.content}" for m in messages[-6:])
-    prompt = REWRITE_PROMPT.format(history=history, question=state["question"])
-    rewritten = get_llm().invoke(prompt).content.strip()
-
-    print(f"[rewrite] '{state['question']}' -> '{rewritten}'")
-    return {"standalone_question": rewritten}
+    
+    return {
+        "standalone_question": standalone,
+        "search_query": standalone,
+        "retry_count": 0,
+        "grade": "",
+    }
