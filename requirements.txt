@@ -18,3 +18,4 @@ langchain-community
 langchain-openai
 langchain-huggingface
 sentence-transformers
+fastembed

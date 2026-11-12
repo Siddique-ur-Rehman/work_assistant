@@ -7,6 +7,9 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from app.config.settings import settings
 from app.rag.embedding import get_embeddings
+from langchain_qdrant import FastEmbedSparse, QdrantVectorStore, RetrievalMode
+
+sparse_embeddings = FastEmbedSparse(model_name="Qdrant/bm25")
 
 
 splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=120)
@@ -19,7 +22,7 @@ def load_file(file):
         return PyPDFLoader(str(file)).load()
     if file.suffix.lower() == ".txt":
         return TextLoader(str(file), encoding="utf-8").load()
-    return []  # ignore other file types
+    return [] 
 
 
 def make_chunks(folder):
@@ -29,13 +32,13 @@ def make_chunks(folder):
         documents = load_file(file)
         chunks = splitter.split_documents(documents)
         for chunk in chunks:
-            # Skip chunks with almost no text
+            
             if len(chunk.page_content.strip()) < 50:
                 continue
-            # Metadata = labels attached to each chunk. Used for citations.
+            
             chunk.metadata["collection"] = folder.name
             chunk.metadata["source"] = file.name
-            # PyPDFLoader counts pages from 0, humans count from 1
+            
             if "page" in chunk.metadata:
                 chunk.metadata["page"] = chunk.metadata["page"] + 1
             all_chunks.append(chunk)
@@ -47,10 +50,13 @@ def store_chunks(chunks, collection_name):
     QdrantVectorStore.from_documents(
         chunks,
         embeddings,
+        sparse_embedding=sparse_embeddings,
+        retrieval_mode=RetrievalMode.HYBRID,
         url=settings.qdrant_url,
         api_key=settings.qdrant_api_key,
         collection_name=collection_name,
-        force_recreate=True,  # delete and rebuild, so re-running never duplicates
+        force_recreate=True,  
+        batch_size=32
     )
 
 
