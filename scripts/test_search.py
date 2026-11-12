@@ -5,7 +5,6 @@ from app.rag.embedding import get_embeddings
 
 embeddings = get_embeddings()
 
-
 QUESTION = "What was mission of kpk health department?"
 
 COLLECTIONS = ["licensing_regulations", "health_policy_kpk"]
