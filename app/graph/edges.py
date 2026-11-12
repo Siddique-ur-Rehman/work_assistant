@@ -11,7 +11,7 @@ def route_after_router(state):
 def route_after_grade(state):
     if state["grade"] == "good":
         return "answer"
-    # Weak results: retry only while we are under the limit
+    
     if state.get("retry_count", 0) < settings.max_retrieval_retries:
         return "retry_query"
     return "no_answer"
