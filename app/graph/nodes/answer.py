@@ -1,5 +1,5 @@
 
-from app.rag.llm import get_llm
+from app.rag.llm import ask_llm
 
 PROMPT = """You are a healthcare policy assistant.
 Answer the question using ONLY the context below.
@@ -27,7 +27,7 @@ def answer_node(state):
         for d in state["documents"]
     )
     prompt = PROMPT.format(history=history, context=context, question=state["standalone_question"])
-    answer = get_llm().invoke(prompt).content
+    answer = ask_llm(prompt, "The assistant is temporarily unavailable. Please try again shortly.")
 
     
     return {

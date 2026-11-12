@@ -1,5 +1,5 @@
 
-from app.rag.llm import get_llm
+from app.rag.llm import ask_llm
 
 REWRITE_PROMPT = """Rewrite the user's latest question so it makes sense on its own.
 Use the conversation to replace words like "it", "that", "they".
@@ -22,7 +22,7 @@ def rewrite_node(state):
     else:
         history = "\n".join(f"{m.type}: {m.content}" for m in messages[-6:])
         prompt = REWRITE_PROMPT.format(history=history, question=state["question"])
-        standalone = get_llm().invoke(prompt).content.strip()
+        standalone = ask_llm(prompt, state["question"])
         print(f"[rewrite] '{state['question']}' -> '{standalone}'")
 
     

@@ -1,6 +1,6 @@
 # Node: decide what to do with the question.
 from app.config.collection import COLLECTIONS
-from app.rag.llm import get_llm
+from app.rag.llm import ask_llm
 
 ROUTER_PROMPT = """You route questions.
 
@@ -27,7 +27,7 @@ def router_node(state):
     prompt = ROUTER_PROMPT.format(
         descriptions=descriptions, options=options, question=question
     )
-    reply = get_llm().invoke(prompt).content.strip().lower()
+    reply = ask_llm(prompt, "both").lower()
 
     if "history" in reply:
         intent, chosen = "history", []
@@ -36,7 +36,7 @@ def router_node(state):
     else:
         intent = "search"
         chosen = [name for name in COLLECTIONS if name in reply]
-        if not chosen:                      # "both" or unclear: search all
+        if not chosen:                     
             chosen = list(COLLECTIONS)
 
     print(f"[router] reply='{reply}' -> intent={intent}, collections={chosen}")
