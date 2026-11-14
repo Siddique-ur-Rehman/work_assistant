@@ -1,5 +1,6 @@
 
 from contextlib import asynccontextmanager
+from langgraph.store.postgres import PostgresStore
 
 from fastapi import FastAPI
 from langgraph.checkpoint.postgres import PostgresSaver
@@ -9,11 +10,14 @@ from app.graph.nodes.builder import build_graph
 from app.sessions.db import pool
 
 
+
 @asynccontextmanager
 async def lifespan(app):
     pool.open()
     checkpointer = PostgresSaver(pool)
+    store=PostgresStore(pool)
     app.state.checkpointer = checkpointer
+    app.state.store=store
     app.state.graph = build_graph(checkpointer)
     yield                     
     pool.close()

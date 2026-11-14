@@ -1,7 +1,7 @@
 
-from fastapi import APIRouter, Header, HTTPException, Request
+from fastapi import APIRouter, BackgroundTasks, Header, HTTPException, Request
 from langgraph.errors import GraphRecursionError
-
+from app.memory import memory
 from app.api.schemas import ChatIn, RenameIn
 from app.rag.llm import ask_llm
 from app.sessions import store
@@ -63,17 +63,26 @@ def get_messages(thread_id: str, request: Request, x_user_id: str = Header(None)
 
 
 @router.post("/threads/{thread_id}/chat")
-def chat(thread_id: str, body: ChatIn, request: Request, x_user_id: str = Header(None)):
+def chat(
+    thread_id: str,
+    body: ChatIn,
+    request: Request,
+    background: BackgroundTasks,
+    x_user_id: str = Header(None),
+):
     user_id = require_user(x_user_id)
     thread = require_thread(thread_id, user_id)
 
-    config = {"configurable": {"thread_id": thread_id}, "recursion_limit": 25}
+    
+    config = {
+        "configurable": {"thread_id": thread_id, "user_id": user_id},
+        "recursion_limit": 25,
+    }
     try:
         result = request.app.state.graph.invoke({"question": body.question}, config)
     except GraphRecursionError:
         raise HTTPException(status_code=500, detail="The run hit the step limit")
 
-    
     if thread["title"] == "New chat":
         title = ask_llm(
             f"Write a title of at most 5 words for a chat that starts with: {body.question}\n"
@@ -84,8 +93,36 @@ def chat(thread_id: str, body: ChatIn, request: Request, x_user_id: str = Header
 
     store.touch_thread(thread_id)
 
+    
+    background.add_task(
+        memory.save_new_memories,
+        request.app.state.store,
+        user_id,
+        body.question,
+        result["answer"],
+    )
+
     sources = [
         {"collection": d["collection"], "file": d["source"], "page": d["page"]}
         for d in result.get("documents", [])
     ]
     return {"answer": result["answer"], "sources": sources}
+
+@router.get("/memories")
+def list_memories(request: Request, x_user_id: str = Header(None)):
+    user_id = require_user(x_user_id)
+    return memory.load_memories(request.app.state.store, user_id)
+
+
+@router.delete("/memories/{key}")
+def delete_memory(key: str, request: Request, x_user_id: str = Header(None)):
+    user_id = require_user(x_user_id)
+    memory.delete_memory(request.app.state.store, user_id, key)
+    return {"deleted": key}
+
+
+@router.delete("/memories")
+def delete_all_memories(request: Request, x_user_id: str = Header(None)):
+    user_id = require_user(x_user_id)
+    memory.delete_all_memories(request.app.state.store, user_id)
+    return {"deleted": "all"}

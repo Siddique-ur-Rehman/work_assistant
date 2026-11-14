@@ -6,6 +6,7 @@ class GraphState(TypedDict, total=False):
     standalone_question:str
     intent:str
     search_query:str
+    memories: list 
     retry_count:int
     grade:str
     documents: list   
