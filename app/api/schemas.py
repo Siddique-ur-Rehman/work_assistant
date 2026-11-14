@@ -1,4 +1,4 @@
-# Shapes of the data the API accepts.
+
 from pydantic import BaseModel, Field
 
 
