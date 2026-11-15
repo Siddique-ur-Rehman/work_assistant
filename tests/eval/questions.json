@@ -1,0 +1,620 @@
+[
+  {
+    "id": "Q1",
+    "question": "What is the short title of these regulations?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 1,
+    "answerable": true,
+    "reference": "These Regulations shall be called as the Khyber Pakhtunkhwa Health Care Commission (Registration and Licensing) Regulations, 2022."
+  },
+  {
+    "id": "Q2",
+    "question": "To which geographical area do these regulations apply?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 1,
+    "answerable": true,
+    "reference": "These Regulations shall extend to the whole Province of Khyber Pakhtunkhwa and apply to all Health Care Establishments (HCEs), whether public or private:"
+  },
+  {
+    "id": "Q3",
+    "question": "What does the term 'Applicant' mean in the regulations?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 1,
+    "answerable": true,
+    "reference": "“Applicant” means health care establishment and/or health care service provider who has applied for registration and/or licence or its renewal, as the case may be;"
+  },
+  {
+    "id": "Q4",
+    "question": "What is meant by a Health Care Establishment?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 2,
+    "answerable": true,
+    "reference": "\"Health Care Establishment\" means a hospital, diagnostic center, blood bank, medical clinic, nursing home, maternity home, dental clinic, homeopathic clinic, tibb clinic, acupuncture, physiotherapy clinic, aesthetic clinic, rehabilitation centres or any other premises or conveyance:"
+  },
+  {
+    "id": "Q5",
+    "question": "Who is a Health Care Service Provider under these regulations?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 2,
+    "answerable": true,
+    "reference": "\"Health Care Service Provider\" means a person who provides health care services duly registered by the Pakistan Medical Dental Council, National Council for Tibb, Council for Homeopathy, Nursing Council or any other relevant council/body of the Government."
+  },
+  {
+    "id": "Q6",
+    "question": "Which directorates are established for registration and licensing management?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 4,
+    "answerable": true,
+    "reference": "For registration and licensing management, the Commission shall establish two Directorates; namely, the Directorate of Licensing and the Directorate of Quality, and any other directorate as deemed appropriate."
+  },
+  {
+    "id": "Q7",
+    "question": "What authority does the Directorate of Licensing use to issue licences?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 4,
+    "answerable": true,
+    "reference": "The Directorate of Licensing or any other officer of the Commission shall use delegated authority of the Board through the Chief Executive Officer to register and issue licences to the health care establishments and/or renew and modify, and suspend the registration and/or licences, granted by the Commission;"
+  },
+  {
+    "id": "Q8",
+    "question": "Who issues registration certificates and licences to eligible health care establishments?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 5,
+    "answerable": true,
+    "reference": "The respective director shall use delegated authority of the Board through the Chief Executive Officer to issue registration certificates and licences to eligible health care establishments."
+  },
+  {
+    "id": "Q9",
+    "question": "How are health care establishments categorized for registration and licensing?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 5,
+    "answerable": true,
+    "reference": "For the Purpose of registration and licensing under the Act and these Regulations, and implementation of the Minimum Service Delivery Standards (MSDS), all health care establishments in the Khyber Pakhtunkhwa shall be categorized as per first schedule, of these regulations."
+  },
+  {
+    "id": "Q10",
+    "question": "Are private health care establishments required to register with the Commission?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 5,
+    "answerable": true,
+    "reference": "All the private health care establishments in the Khyber Pakhtunkhwa, including trusts, charities, associations, foundations and cooperative societies providing health care services, shall apply to the Commission for registration and no private health care establishment, shall provide health care services, if not registered with the Khyber Pakhtunkhwa Health Care Commission;"
+  },
+  {
+    "id": "Q11",
+    "question": "How are public sector health care establishments treated for registration?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 5,
+    "answerable": true,
+    "reference": "The public sector health care establishment shall be considered as registered;"
+  },
+  {
+    "id": "Q12",
+    "question": "When must a new private health care establishment register?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 5,
+    "answerable": true,
+    "reference": "Any new private health care establishment shall register itself with the Commission before commencement of health care services;"
+  },
+  {
+    "id": "Q13",
+    "question": "Within how many days does the Commission decide on an application for registration?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 6,
+    "answerable": true,
+    "reference": "The Commission shall either complete the process and issue a Certificate of Registration to the applicant or communicate the decision of rejection, if the health care establishment does not meet the essential criteria for registration, within 30 days of the receipt of application;"
+  },
+  {
+    "id": "Q14",
+    "question": "Can an applicant re-apply for registration after meeting the criteria?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 6,
+    "answerable": true,
+    "reference": "The applicant would be at liberty to re-apply for registration if the criteria is subsequently fulfilled, and the Commission is satisfied that the health care establishment is eligible for registration."
+  },
+  {
+    "id": "Q15",
+    "question": "How is the registration fee determined?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 6,
+    "answerable": true,
+    "reference": "The Commission shall charge fee for registration of health care establishments as determined by the Board, from time to time;"
+  },
+  {
+    "id": "Q16",
+    "question": "What form should registered health care establishments use to apply for a licence?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 8,
+    "answerable": true,
+    "reference": "The registered health care establishments shall make an application to the Commission for issuance of licence on the prescribed form;"
+  },
+  {
+    "id": "Q17",
+    "question": "Can an unregistered health care establishment submit a combined registration and licence application?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 8,
+    "answerable": true,
+    "reference": "The unregistered HCEs may submit a combined application for registration and licence, on the prescribed form;"
+  },
+  {
+    "id": "Q18",
+    "question": "What must accompany the licensing application form?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 8,
+    "answerable": true,
+    "reference": "The application form must be accompanied by the relevant documents, evidences, statements and fee as determined by the Commission;"
+  },
+  {
+    "id": "Q19",
+    "question": "How long does a health care establishment have to implement minimum standards after provisional licensing?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 8,
+    "answerable": true,
+    "reference": "The health care establishment shall have three months, from the date of issuance of provisional licence, to implement the minimum standards."
+  },
+  {
+    "id": "Q20",
+    "question": "What happens if an establishment meets the minimum criteria and required score at inspection?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 8,
+    "answerable": true,
+    "reference": "If, as a result of inspection, the health care establishment fulfils the minimum criteria and gets the required score, Full Licence shall be awarded;"
+  },
+  {
+    "id": "Q21",
+    "question": "What right does an establishment have if it disagrees with the licence assessment?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 9,
+    "answerable": true,
+    "reference": "If the health care establishment has reservation about the assessment for licence, it shall have the right of appeal to the review committee;"
+  },
+  {
+    "id": "Q22",
+    "question": "Can a licence issued under these regulations be transferred?",
+    "expected_collections": [
+      "licensing_regulations"
+    ],
+    "expected_source": "licencing_regulations.pdf",
+    "expected_page": 10,
+    "answerable": true,
+    "reference": "A licence issued under these Regulations shall neither be assignable nor transferrable, unless a written permission is granted by the competent authority, in accordance with these Regulations, with reasons to be recorded in writing, pertaining to issues of merger, acquisition or change of proprietorship etc., of the HCE."
+  },
+  {
+    "id": "Q23",
+    "question": "What is the main purpose of the KP Health Policy described in the document?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 3,
+    "answerable": true,
+    "reference": "The primary aim of this policy is to reform health systems in all dimensions of health services organisation including prevention of diseases, promotion of good health, delivery of effective curative services through addressing issues in healthcare financing, developing human resource, access to medical technologies and supplies, improving health information and knowledge base for evidence-based decision making, strengthening regulation and governance."
+  },
+  {
+    "id": "Q24",
+    "question": "Which body was constituted by the Health Department to advise on the provincial health policy?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 4,
+    "answerable": true,
+    "reference": "Department of Health constituted a Health Policy Advisory Council (HPAC) comprising health representatives of international donors, UN Agencies, Public and Private Health Sectors for provision of advice and technical backstopping for devising a comprehensive health policy."
+  },
+  {
+    "id": "Q25",
+    "question": "What change in health policy responsibilities followed the 18th Amendment?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 6,
+    "answerable": true,
+    "reference": "All other policy matters stand devolved to the provinces after the 18th Amendment to the Constitution of Pakistan."
+  },
+  {
+    "id": "Q26",
+    "question": "What is the policy's stated vision for health in Khyber Pakhtunkhwa?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 23,
+    "answerable": true,
+    "reference": "Accessible, equitable and quality healthcare for all people of Khyber Pakhtunkhwa"
+  },
+  {
+    "id": "Q27",
+    "question": "What is the mission of the KP Health Policy?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 23,
+    "answerable": true,
+    "reference": "To develop and implement a sustainable, coordinated, integrated and comprehensive health system at all levels, based on the Primary Health Care approach through the District Health System, to ensure universal access to quality health care."
+  },
+  {
+    "id": "Q28",
+    "question": "How many main health policy outcomes are listed in the document?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 24,
+    "answerable": true,
+    "reference": "Enhanced coverage and access of essential health services especially for the poor and vulnerable"
+  },
+  {
+    "id": "Q29",
+    "question": "What is the policy's first listed health outcome?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 24,
+    "answerable": true,
+    "reference": "Enhanced coverage and access of essential health services especially for the poor and vulnerable"
+  },
+  {
+    "id": "Q30",
+    "question": "What does the policy say about primary, preventive and promotive health services?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 25,
+    "answerable": true,
+    "reference": "Government of KP will improve the coverage of primary, preventive and promotive health services, through the execution of Minimum Health Service Delivery Package at all primary and secondary health facilities in the province."
+  },
+  {
+    "id": "Q31",
+    "question": "What does the policy say about attaching health facilities to teaching institutions?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 26,
+    "answerable": true,
+    "reference": "All health facilities in every district will be attached with a teaching institution in the district"
+  },
+  {
+    "id": "Q32",
+    "question": "What does the policy state about ICU beds in category A and B hospitals?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 27,
+    "answerable": true,
+    "reference": "All category A and B hospitals will allocate at least 10% of beds to Intensive Care Unit."
+  },
+  {
+    "id": "Q33",
+    "question": "What energy source does the policy propose for all health facilities?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 27,
+    "answerable": true,
+    "reference": "All health facilities will be on solar/renewable energy."
+  },
+  {
+    "id": "Q34",
+    "question": "At what administrative level does the policy propose establishing burn care facilities?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 28,
+    "answerable": true,
+    "reference": "Burn care facilities shall be established at the divisional level."
+  },
+  {
+    "id": "Q35",
+    "question": "What programme will make safe blood transfusion services available?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 29,
+    "answerable": true,
+    "reference": "Safe Blood Transfusion services will be made available to the people of Khyber Pakhtunkhwa through Safe Blood Transfusion Programme."
+  },
+  {
+    "id": "Q36",
+    "question": "What disease surveillance system does the policy propose strengthening?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 30,
+    "answerable": true,
+    "reference": "The Department of Health will strengthen and implement Integrated Disease Surveillance and Response (IDSRS) by establishing operational surveillance units at all levels with skilled staff and backup networks of laboratories"
+  },
+  {
+    "id": "Q37",
+    "question": "What does the policy say about telemedicine?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 30,
+    "answerable": true,
+    "reference": "Telemedicine will be promoted in the province"
+  },
+  {
+    "id": "Q38",
+    "question": "Which institution will supervise compulsory induction, promotional and refresher courses?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 31,
+    "answerable": true,
+    "reference": "Training Institutes shall develop and provide compulsory induction, promotional and refresher courses under supervision of Provincial Health Services Academy (PHSA) and Divisional Health Development Centres (DHDC)."
+  },
+  {
+    "id": "Q39",
+    "question": "Which health workforce groups are specifically mentioned for enhanced education and training capacity?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 32,
+    "answerable": true,
+    "reference": "Priority would be given to enhance capacity in the province for education and training of nurses, LHVs, midwives, pharmacists, allied health workers/paramedics."
+  },
+  {
+    "id": "Q40",
+    "question": "What is the policy's approach to continuing medical education?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 32,
+    "answerable": true,
+    "reference": "Continuing medical education, with links to promotions in medical, nursing and paramedical education at all levels will be introduced."
+  },
+  {
+    "id": "Q41",
+    "question": "What role will the Health Department take in sector-wide stewardship?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 33,
+    "answerable": true,
+    "reference": "Department of Health will be responsible for sector wide strategic planning, regulation, purchasing and financing and moving towards separation of service provision from its stewardship function."
+  },
+  {
+    "id": "Q42",
+    "question": "How will community engagement and awareness be strengthened?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 34,
+    "answerable": true,
+    "reference": "Community engagement and awareness will be strengthened through outreach health staff, health campaigns at primary health facilities, social media campaigns, complaints cell and health management committees."
+  },
+  {
+    "id": "Q43",
+    "question": "What is the policy's approach to recruitment of health staff?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 35,
+    "answerable": true,
+    "reference": "All recruitments will be on merit and it will be ensured that an internal/external competitive and transparent process is followed to select project managers, DHOs and other management staff."
+  },
+  {
+    "id": "Q44",
+    "question": "What is the objective of the proposed provincial health financing strategy?",
+    "expected_collections": [
+      "health_policy_kpk"
+    ],
+    "expected_source": "health_policy_kpk.pdf",
+    "expected_page": 36,
+    "answerable": true,
+    "reference": "Health financing strategy will be developed for the province to progressively build a sustainable political, national, and community commitment with a view towards achieving and maintaining universal health coverage through increased and diversified domestic financing options."
+  },
+  {
+    "id": "Q45",
+    "question": "How do the licensing regulations and the health policy address quality in health care services?",
+    "expected_collections": [
+      "licensing_regulations",
+      "health_policy_kpk"
+    ],
+    "expected_source": [
+      "licencing_regulations.pdf",
+      "health_policy_kpk.pdf"
+    ],
+    "expected_page": [
+      5,
+      25
+    ],
+    "answerable": true,
+    "reference": [
+      {
+        "source": "licencing_regulations.pdf",
+        "page": 5,
+        "text": "For the Purpose of registration and licensing under the Act and these Regulations, and implementation of the Minimum Service Delivery Standards (MSDS), all health care establishments in the Khyber Pakhtunkhwa shall be categorized as per first schedule, of these regulations."
+      },
+      {
+        "source": "health_policy_kpk.pdf",
+        "page": 25,
+        "text": "Quality of services will be ensured by implementing Primary and Secondary Healthcare Standards for delivery of service."
+      }
+    ]
+  },
+  {
+    "id": "Q46",
+    "question": "How do the two documents address the role of the Health Care Commission and regulation of health care establishments?",
+    "expected_collections": [
+      "licensing_regulations",
+      "health_policy_kpk"
+    ],
+    "expected_source": [
+      "licencing_regulations.pdf",
+      "health_policy_kpk.pdf"
+    ],
+    "expected_page": [
+      4,
+      34
+    ],
+    "answerable": true,
+    "reference": [
+      {
+        "source": "licencing_regulations.pdf",
+        "page": 4,
+        "text": "The Directorate of Licensing or any other officer of the Commission shall use delegated authority of the Board through the Chief Executive Officer to register and issue licences to the health care establishments"
+      },
+      {
+        "source": "health_policy_kpk.pdf",
+        "page": 34,
+        "text": "Health Care Commission (HCC) KP being a legal body for measuring the quality of health care both in public and private sector; Department of Health will assess, review and strengthen Health Care Commission to streamline its functions."
+      }
+    ]
+  },
+  {
+    "id": "Q47",
+    "question": "How do the documents connect licensing standards with improvements in health service quality?",
+    "expected_collections": [
+      "licensing_regulations",
+      "health_policy_kpk"
+    ],
+    "expected_source": [
+      "licencing_regulations.pdf",
+      "health_policy_kpk.pdf"
+    ],
+    "expected_page": [
+      8,
+      25
+    ],
+    "answerable": true,
+    "reference": [
+      {
+        "source": "licencing_regulations.pdf",
+        "page": 8,
+        "text": "The health care establishment shall have three months, from the date of issuance of provisional licence, to implement the minimum standards."
+      },
+      {
+        "source": "health_policy_kpk.pdf",
+        "page": 25,
+        "text": "Quality of services will be ensured by implementing Primary and Secondary Healthcare Standards for delivery of service."
+      }
+    ]
+  },
+  {
+    "id": "Q48",
+    "question": "How do the documents address health care access and the regulation of health care providers?",
+    "expected_collections": [
+      "licensing_regulations",
+      "health_policy_kpk"
+    ],
+    "expected_source": [
+      "licencing_regulations.pdf",
+      "health_policy_kpk.pdf"
+    ],
+    "expected_page": [
+      5,
+      25
+    ],
+    "answerable": true,
+    "reference": [
+      {
+        "source": "licencing_regulations.pdf",
+        "page": 5,
+        "text": "All the private health care establishments in the Khyber Pakhtunkhwa, including trusts, charities, associations, foundations and cooperative societies providing health care services, shall apply to the Commission for registration"
+      },
+      {
+        "source": "health_policy_kpk.pdf",
+        "page": 25,
+        "text": "Government of KP will improve the coverage of primary, preventive and promotive health services, through the execution of Minimum Health Service Delivery Package at all primary and secondary health facilities in the province."
+      }
+    ]
+  },
+  {
+    "id": "Q49",
+    "question": "What is the prescribed procedure for obtaining a commercial driving licence in Khyber Pakhtunkhwa?",
+    "expected_collections": [],
+    "expected_source": null,
+    "expected_page": null,
+    "answerable": false,
+    "reference": null
+  },
+  {
+    "id": "Q50",
+    "question": "Which mobile application is recommended for booking private hospital appointments?",
+    "expected_collections": [],
+    "expected_source": null,
+    "expected_page": null,
+    "answerable": false,
+    "reference": null
+  }
+]
