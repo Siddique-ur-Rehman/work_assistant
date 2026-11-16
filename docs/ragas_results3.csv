@@ -1,0 +1,49 @@
+question,faithfulness,answer_relevancy,context_precision,context_recall
+What is the short title of these regulations?,1.0,1.0,0.3,1.0
+To which geographical area do these regulations apply?,1.0,1.0,0.6,1.0
+What does the term 'Applicant' mean in the regulations?,1.0,1.0,0.3,1.0
+What is meant by a Health Care Establishment?,1.0,1.0,1.0,1.0
+Who is a Health Care Service Provider under these regulations?,1.0,1.0,0.3,1.0
+Which directorates are established for registration and licensing management?,1.0,1.0,1.0,1.0
+What authority does the Directorate of Licensing use to issue licences?,1.0,1.0,0.8,1.0
+Who issues registration certificates and licences to eligible health care establishments?,1.0,1.0,1.0,1.0
+How are health care establishments categorized for registration and licensing?,1.0,1.0,0.2,1.0
+Are private health care establishments required to register with the Commission?,1.0,1.0,1.0,1.0
+How are public sector health care establishments treated for registration?,1.0,1.0,0.3,1.0
+When must a new private health care establishment register?,1.0,1.0,0.1,1.0
+Within how many days does the Commission decide on an application for registration?,1.0,1.0,0.1,1.0
+Can an applicant re-apply for registration after meeting the criteria?,1.0,1.0,0.2,1.0
+How is the registration fee determined?,1.0,1.0,0.2,1.0
+What form should registered health care establishments use to apply for a licence?,1.0,0.3,0.6,1.0
+Can an unregistered health care establishment submit a combined registration and licence application?,1.0,1.0,1.0,1.0
+What must accompany the licensing application form?,1.0,1.0,0.6,1.0
+How long does a health care establishment have to implement minimum standards after provisional licensing?,1.0,1.0,0.8,1.0
+What happens if an establishment meets the minimum criteria and required score at inspection?,1.0,1.0,0.3,1.0
+What right does an establishment have if it disagrees with the licence assessment?,1.0,1.0,1.0,1.0
+Can a licence issued under these regulations be transferred?,1.0,1.0,1.0,1.0
+What is the main purpose of the KP Health Policy described in the document?,1.0,1.0,0.3,0.3
+Which body was constituted by the Health Department to advise on the provincial health policy?,1.0,1.0,0.3,1.0
+What change in health policy responsibilities followed the 18th Amendment?,1.0,1.0,1.0,1.0
+What is the policy's stated vision for health in Khyber Pakhtunkhwa?,1.0,1.0,0.3,1.0
+What is the mission of the KP Health Policy?,1.0,1.0,1.0,1.0
+How many main health policy outcomes are listed in the document?,0.0,1.0,0.4,1.0
+What is the policy's first listed health outcome?,0.7,1.0,1.0,1.0
+"What does the policy say about primary, preventive and promotive health services?",1.0,1.0,0.6,1.0
+What does the policy say about attaching health facilities to teaching institutions?,1.0,1.0,0.2,1.0
+What does the policy state about ICU beds in category A and B hospitals?,1.0,1.0,0.1,1.0
+What energy source does the policy propose for all health facilities?,1.0,1.0,0.1,1.0
+At what administrative level does the policy propose establishing burn care facilities?,1.0,1.0,0.1,1.0
+What programme will make safe blood transfusion services available?,1.0,1.0,0.2,1.0
+What disease surveillance system does the policy propose strengthening?,1.0,1.0,0.3,1.0
+What does the policy say about telemedicine?,1.0,1.0,0.0,1.0
+"Which institution will supervise compulsory induction, promotional and refresher courses?",1.0,1.0,0.3,1.0
+Which health workforce groups are specifically mentioned for enhanced education and training capacity?,1.0,1.0,0.3,1.0
+What is the policy's approach to continuing medical education?,1.0,1.0,0.2,1.0
+What role will the Health Department take in sector-wide stewardship?,1.0,1.0,1.0,1.0
+How will community engagement and awareness be strengthened?,1.0,1.0,0.2,1.0
+What is the policy's approach to recruitment of health staff?,1.0,1.0,0.2,1.0
+What is the objective of the proposed provincial health financing strategy?,1.0,1.0,0.2,1.0
+How do the licensing regulations and the health policy address quality in health care services?,1.0,1.0,1.0,1.0
+How do the two documents address the role of the Health Care Commission and regulation of health care establishments?,1.0,1.0,1.0,0.8
+How do the documents connect licensing standards with improvements in health service quality?,1.0,1.0,1.0,1.0
+How do the documents address health care access and the regulation of health care providers?,1.0,0.5,1.0,0.3
