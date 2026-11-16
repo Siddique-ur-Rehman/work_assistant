@@ -2,211 +2,88 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SehatGuide KP</title>
 <style>
-  :root {
-    --paper: #f1f5f4;
-    --panel: #ffffff;
-    --ink: #12332f;
-    --muted: #5d7773;
-    --line: #d5e1de;
-    --accent: #0b7a6b;
-    --accent-ink: #ffffff;
-    --user-bg: #dcefeb;
-    --cite-bg: #fbf0d6;
-    --cite-ink: #6b4a0a;
-    --cite-line: #e3c987;
-    --danger: #b42318;
-    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    color-scheme: light dark;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper: #0f1c1a;
-      --panel: #152826;
-      --ink: #e4efed;
-      --muted: #8fa9a5;
-      --line: #264541;
-      --accent: #38c2ae;
-      --accent-ink: #06231f;
-      --user-bg: #1b3a36;
-      --cite-bg: #3a2f14;
-      --cite-ink: #f0d79a;
-      --cite-line: #6b5521;
-      --danger: #f97066;
-    }
-  }
+:root{--paper:#f1f5f4;--panel:#fff;--ink:#12332f;--muted:#5d7773;--line:#d5e1de;--accent:#0b7a6b;--accent-ink:#fff;--user-bg:#dcefeb;--lic-bg:#fbf0d6;--lic-ink:#6b4a0a;--lic-line:#d9b45a;--pol-bg:#e3eaf8;--pol-ink:#233a73;--pol-line:#8aa2dc;--danger:#b42318;--ok:#1a9a52;--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color-scheme:light dark}
+@media(prefers-color-scheme:dark){:root{--paper:#0f1c1a;--panel:#152826;--ink:#e4efed;--muted:#8fa9a5;--line:#264541;--accent:#38c2ae;--accent-ink:#06231f;--user-bg:#1b3a36;--lic-bg:#3a2f14;--lic-ink:#f0d79a;--lic-line:#7a6226;--pol-bg:#1d2a4d;--pol-ink:#c3d1f5;--pol-line:#4a62a3;--danger:#f97066}}
+*{box-sizing:border-box}html,body{height:100%;margin:0}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);display:flex;overflow:hidden}
+button{font:inherit;color:inherit;cursor:pointer}:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+kbd{font:inherit;font-size:11px;padding:1px 6px;border:1px solid currentColor;border-radius:4px;opacity:.7}
+.icon-btn{border:0;background:transparent;color:var(--muted);padding:4px 7px;border-radius:4px;font-size:13px}.icon-btn:hover{background:var(--line);color:var(--ink)}
+.link-btn{text-align:left;background:none;border:0;padding:2px 0;color:var(--accent);font-size:14px}.link-btn:hover{text-decoration:underline}
 
-  * { box-sizing: border-box; }
-  html, body { height: 100%; margin: 0; }
-  body {
-    font-family: var(--sans);
-    background: var(--paper);
-    color: var(--ink);
-    display: flex;
-    overflow: hidden;
-  }
-  button { font: inherit; color: inherit; cursor: pointer; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+#sidebar{width:300px;flex-shrink:0;background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0)}
+.brand{display:flex;gap:12px;align-items:center;padding:18px 18px 10px}
+.logo{width:38px;height:38px;border-radius:9px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:700 22px var(--serif)}
+.brand h1{font:600 19px var(--serif);margin:0}.brand p{margin:1px 0 0;font-size:12.5px;color:var(--muted);line-height:1.3}
+.btn-primary{margin:8px 16px;padding:10px 14px;background:var(--accent);color:var(--accent-ink);border:0;border-radius:6px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.btn-primary:hover{filter:brightness(1.08)}
+#search{margin:0 16px 8px;padding:8px 10px;font:inherit;font-size:14px;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:6px}
+#threads{flex:1;overflow-y:auto;padding:0 8px}
+.thread{display:flex;align-items:center;gap:6px;padding:9px 10px;border-radius:6px;border-left:3px solid transparent;cursor:pointer}
+.thread:hover,.thread.active{background:var(--paper)}.thread.active{border-left-color:var(--accent)}
+.t-title{flex:1;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.t-time{font-size:11.5px;color:var(--muted)}.t-act{display:none}.thread:hover .t-act,.thread.active .t-act{display:flex}.thread:hover .t-time,.thread.active .t-time{display:none}
+.empty-list{padding:16px 12px;font-size:13px;color:var(--muted)}
+.side-foot{border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0));display:flex;flex-direction:column;gap:8px}
+.who{font-size:13px;color:var(--muted)}.who strong{color:var(--ink)}
 
-  /* ---------- sidebar ---------- */
-  #sidebar {
-    width: 292px;
-    flex-shrink: 0;
-    background: var(--panel);
-    border-right: 1px solid var(--line);
-    display: flex;
-    flex-direction: column;
-    padding-top: env(safe-area-inset-top, 0px);
-  }
-  .brand { padding: 20px 20px 12px; }
-  .brand h1 { font-family: var(--serif); font-size: 21px; margin: 0; letter-spacing: .1px; }
-  .brand p { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+#main{flex:1;display:flex;flex-direction:column;min-width:0;position:relative;padding-top:env(safe-area-inset-top,0)}
+.topbar{display:flex;align-items:center;gap:10px;padding:12px 24px;border-bottom:1px solid var(--line);background:var(--panel)}
+#menu-btn{display:none;font-size:20px}#chat-title{flex:1;font:600 18px var(--serif);margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.status{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted)}.dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}.dot.on{background:var(--ok)}.dot.off{background:var(--danger)}
+#messages{flex:1;overflow-y:auto;padding:28px 24px 12px;scroll-behavior:smooth}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:26px}
 
-  .btn-primary {
-    margin: 8px 16px 12px;
-    padding: 10px 14px;
-    background: var(--accent);
-    color: var(--accent-ink);
-    border: 0;
-    border-radius: 6px;
-    font-weight: 600;
-  }
-  .btn-primary:hover { filter: brightness(1.08); }
+.msg.user{align-self:flex-end;max-width:82%;background:var(--user-bg);padding:10px 14px;border-radius:10px 10px 2px 10px;line-height:1.5;white-space:pre-wrap}
+.msg.assistant{border-left:3px solid var(--accent);padding-left:16px}
+.body{font:17px/1.65 var(--serif)}.body p{margin:0 0 .7em}.body p:last-child{margin:0}.body ul{margin:0 0 .7em;padding-left:1.2em}.body li{margin-bottom:.3em}
+.fade{opacity:0;animation:fade .45s forwards}@keyframes fade{to{opacity:1}}
+.msg.error{border-left:3px solid var(--danger);padding-left:14px;font-size:14px;color:var(--danger)}.msg.error button{margin-top:8px;display:block;color:var(--accent)}
+.sources{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.cite{font:12.5px var(--sans);padding:4px 10px;border:1px solid;border-radius:2px 8px 8px 2px;background:var(--lic-bg);color:var(--lic-ink);border-color:var(--lic-line)}
+.cite.pol{background:var(--pol-bg);color:var(--pol-ink);border-color:var(--pol-line)}
+button.cite:hover,.cite[aria-expanded=true]{filter:brightness(.95);box-shadow:inset 0 -2px 0 currentColor}
+.excerpt{margin-top:10px;padding:10px 12px;font:14px/1.55 var(--sans);background:var(--lic-bg);color:var(--lic-ink);border-radius:6px;white-space:pre-wrap}
+.excerpt.pol{background:var(--pol-bg);color:var(--pol-ink)}.ex-head{font-weight:600;margin-bottom:4px}
+.tools{margin-top:10px;display:flex;gap:4px}.tools .icon-btn{font-size:12.5px}
 
-  #threads { flex: 1; overflow-y: auto; padding: 0 8px; }
-  .thread {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 9px 10px;
-    border-radius: 6px;
-    border-left: 3px solid transparent;
-    cursor: pointer;
-  }
-  .thread:hover { background: var(--paper); }
-  .thread.active { background: var(--paper); border-left-color: var(--accent); }
-  .thread .t-title { flex: 1; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .thread .t-act { display: none; gap: 2px; }
-  .thread:hover .t-act, .thread.active .t-act { display: flex; }
-  .icon-btn {
-    border: 0; background: transparent; color: var(--muted);
-    padding: 4px 6px; border-radius: 4px; font-size: 13px;
-  }
-  .icon-btn:hover { background: var(--line); color: var(--ink); }
-  .empty-list { padding: 16px 12px; font-size: 13px; color: var(--muted); }
+.progress{display:flex;align-items:center;gap:6px;padding:4px 0 4px 19px;color:var(--muted);font-size:14px}
+.progress i{width:7px;height:7px;border-radius:50%;background:var(--accent);opacity:.35;animation:blink 1.2s infinite}.progress i:nth-child(2){animation-delay:.2s}.progress i:nth-child(3){animation-delay:.4s}.progress span{margin-left:6px}
+@keyframes blink{50%{opacity:1}}
 
-  .side-foot {
-    border-top: 1px solid var(--line);
-    padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
-    display: flex; flex-direction: column; gap: 8px;
-  }
-  .who { font-size: 13px; color: var(--muted); }
-  .who strong { color: var(--ink); }
-  .link-btn {
-    text-align: left; background: none; border: 0; padding: 2px 0;
-    color: var(--accent); font-size: 14px;
-  }
-  .link-btn:hover { text-decoration: underline; }
+.welcome{max-width:640px;margin:7vh auto 0}.welcome h2{font:600 30px/1.25 var(--serif);margin:0 0 10px}.welcome p{color:var(--muted);line-height:1.6;margin:0 0 22px}
+.examples{display:flex;flex-direction:column;gap:10px}
+.example{text-align:left;padding:12px 14px;background:var(--panel);border:1px solid var(--line);border-radius:6px;line-height:1.45;display:flex;flex-direction:column;gap:3px}
+.example small{color:var(--muted);font-size:12.5px}.example:hover{border-color:var(--accent)}
 
-  /* ---------- main ---------- */
-  #main { flex: 1; display: flex; flex-direction: column; min-width: 0; padding-top: env(safe-area-inset-top, 0px); }
-  .topbar {
-    display: flex; align-items: center; gap: 10px;
-    padding: 14px 24px; border-bottom: 1px solid var(--line); background: var(--panel);
-  }
-  #menu-btn { display: none; font-size: 20px; }
-  #chat-title { font-family: var(--serif); font-size: 18px; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.composer{padding:10px 24px calc(18px + env(safe-area-inset-bottom,0))}.composer .wrap{gap:6px}
+.box{display:flex;align-items:flex-end;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 8px 8px 14px}.box:focus-within{border-color:var(--accent)}
+#input{flex:1;border:0;resize:none;background:transparent;color:var(--ink);font:inherit;font-size:16px;line-height:1.5;max-height:160px;padding:6px 0;outline:none}
+#send{background:var(--accent);color:var(--accent-ink);border:0;border-radius:6px;padding:9px 16px;font-weight:600}#send:disabled{opacity:.5;cursor:default}
+.note{font-size:12px;color:var(--muted);text-align:center}
+#jump{position:absolute;right:28px;bottom:120px;display:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--panel);box-shadow:0 2px 8px rgba(0,0,0,.15)}
+#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:8px 16px;border-radius:6px;font-size:14px;display:none;z-index:30}
 
-  #messages { flex: 1; overflow-y: auto; padding: 28px 24px 12px; }
-  .wrap { max-width: 740px; margin: 0 auto; display: flex; flex-direction: column; gap: 26px; }
+.overlay{position:fixed;inset:0;background:rgba(8,24,22,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:20}.overlay.show{display:flex}
+.dialog{background:var(--panel);width:100%;max-width:440px;border-radius:10px;padding:24px;max-height:80vh;overflow-y:auto}
+.dialog h2{font:600 22px var(--serif);margin:0 0 6px}.dialog p{color:var(--muted);font-size:14px;line-height:1.5;margin:0 0 16px}
+.dialog input{width:100%;padding:10px 12px;font:inherit;font-size:16px;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:6px;margin-bottom:12px}
+.dialog .btn-primary{margin:0;width:100%;justify-content:center}.actions{display:flex;gap:10px;justify-content:flex-end}
+.actions button{padding:9px 16px;border-radius:6px;border:1px solid var(--line);background:transparent}.actions .ok{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}.actions .ok.danger{background:var(--danger);border-color:var(--danger);color:#fff}
+.mem{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.45}.mem span{flex:1}
 
-  .msg.user { align-self: flex-end; max-width: 82%; background: var(--user-bg); padding: 10px 14px; border-radius: 10px 10px 2px 10px; line-height: 1.5; }
-  .msg.assistant { border-left: 3px solid var(--accent); padding-left: 16px; font-family: var(--serif); font-size: 17px; line-height: 1.65; }
-  .msg.assistant p { margin: 0 0 .7em; }
-  .msg.assistant p:last-child { margin-bottom: 0; }
-  .msg.assistant ul { margin: 0 0 .7em; padding-left: 1.2em; }
-  .msg.assistant li { margin-bottom: .3em; }
-  .msg.error { color: var(--danger); font-size: 14px; border-left: 3px solid var(--danger); padding-left: 14px; }
-
-  .sources { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; font-family: var(--sans); }
-  .cite {
-    font-size: 12.5px; padding: 4px 10px 4px 8px;
-    background: var(--cite-bg); color: var(--cite-ink);
-    border: 1px solid var(--cite-line); border-radius: 2px 8px 8px 2px;
-  }
-  .cite b { font-weight: 600; }
-
-  .typing { display: flex; gap: 5px; padding: 6px 0 6px 19px; }
-  .typing i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); opacity: .35; animation: blink 1.2s infinite; }
-  .typing i:nth-child(2) { animation-delay: .2s; }
-  .typing i:nth-child(3) { animation-delay: .4s; }
-  @keyframes blink { 50% { opacity: 1; } }
-  @media (prefers-reduced-motion: reduce) { .typing i { animation: none; opacity: .7; } }
-
-  /* ---------- welcome ---------- */
-  .welcome { max-width: 620px; margin: 8vh auto 0; }
-  .welcome h2 { font-family: var(--serif); font-size: 30px; line-height: 1.25; margin: 0 0 10px; }
-  .welcome p { color: var(--muted); line-height: 1.6; margin: 0 0 22px; }
-  .examples { display: flex; flex-direction: column; gap: 10px; }
-  .example {
-    text-align: left; padding: 12px 14px; background: var(--panel);
-    border: 1px solid var(--line); border-radius: 6px; line-height: 1.45;
-  }
-  .example:hover { border-color: var(--accent); }
-
-  /* ---------- composer ---------- */
-  .composer { padding: 10px 24px calc(18px + env(safe-area-inset-bottom, 0px)); }
-  .composer .wrap { gap: 6px; }
-  .box {
-    display: flex; align-items: flex-end; gap: 10px;
-    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 8px 8px 8px 14px;
-  }
-  .box:focus-within { border-color: var(--accent); }
-  #input {
-    flex: 1; border: 0; resize: none; background: transparent; color: var(--ink);
-    font: inherit; font-size: 16px; line-height: 1.5; max-height: 160px; padding: 6px 0; outline: none;
-  }
-  #send { background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 6px; padding: 9px 16px; font-weight: 600; }
-  #send:disabled { opacity: .5; cursor: default; }
-  .note { font-size: 12px; color: var(--muted); text-align: center; }
-
-  /* ---------- overlays ---------- */
-  .overlay { position: fixed; inset: 0; background: rgba(8, 24, 22, .55); display: none; align-items: center; justify-content: center; padding: 20px; z-index: 20; }
-  .overlay.show { display: flex; }
-  .dialog { background: var(--panel); width: 100%; max-width: 440px; border-radius: 10px; padding: 24px; max-height: 80vh; overflow-y: auto; }
-  .dialog h2 { font-family: var(--serif); margin: 0 0 6px; font-size: 22px; }
-  .dialog p { color: var(--muted); font-size: 14px; line-height: 1.5; margin: 0 0 16px; }
-  .dialog input[type=text] {
-    width: 100%; padding: 10px 12px; font: inherit; font-size: 16px;
-    background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 6px; margin-bottom: 12px;
-  }
-  .dialog .btn-primary { margin: 0; width: 100%; }
-  .mem { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.45; }
-  .mem span { flex: 1; }
-  .dialog-actions { display: flex; justify-content: space-between; margin-top: 14px; }
-
-  /* ---------- small screens ---------- */
-  @media (max-width: 800px) {
-    #sidebar { position: fixed; inset: 0 auto 0 0; z-index: 10; transform: translateX(-100%); transition: transform .2s; }
-    #sidebar.open { transform: none; box-shadow: 0 0 0 100vmax rgba(8, 24, 22, .45); }
-    #menu-btn { display: block; }
-    .topbar, #messages, .composer { padding-left: 16px; padding-right: 16px; }
-    .welcome h2 { font-size: 25px; }
-  }
-  @media (prefers-reduced-motion: reduce) { #sidebar { transition: none; } }
+@media(max-width:800px){#sidebar{position:fixed;inset:0 auto 0 0;z-index:10;transform:translateX(-100%);transition:transform .2s}#sidebar.open{transform:none;box-shadow:0 0 0 100vmax rgba(8,24,22,.45)}#menu-btn{display:block}.topbar,#messages,.composer{padding-left:16px;padding-right:16px}.welcome h2{font-size:25px}.status span:last-child{display:none}}
+@media(prefers-reduced-motion:reduce){.fade{animation:none;opacity:1}.progress i{animation:none;opacity:.7}#sidebar{transition:none}#messages{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-
 <aside id="sidebar" aria-label="Chats">
-  <div class="brand">
-    <h1>SehatGuide KP</h1>
-    <p>Licensing and health policy answers, with sources</p>
-  </div>
-  <button class="btn-primary" id="new-chat">New chat</button>
+  <div class="brand"><span class="logo">S</span><div><h1>SehatGuide KP</h1><p>Licensing and policy answers with sources</p></div></div>
+  <button class="btn-primary" id="new-chat"><span>New chat</span><kbd>Ctrl K</kbd></button>
+  <input type="search" id="search" placeholder="Search chats" aria-label="Search chats">
   <div id="threads"></div>
   <div class="side-foot">
     <div class="who">Signed in as <strong id="who"></strong></div>
@@ -219,339 +96,332 @@
   <div class="topbar">
     <button class="icon-btn" id="menu-btn" aria-label="Open chat list">&#9776;</button>
     <h2 id="chat-title">New chat</h2>
+    <div class="status" title="Server status"><span class="dot" id="dot"></span><span id="dot-label">Checking</span></div>
+    <button class="icon-btn" id="export" title="Download this chat as Markdown">Export</button>
   </div>
   <div id="messages"><div class="wrap" id="stream"></div></div>
-  <div class="composer">
-    <div class="wrap">
-      <div class="box">
-        <textarea id="input" rows="1" placeholder="Ask about licensing rules or KP health policy" aria-label="Your question"></textarea>
-        <button id="send">Send</button>
-      </div>
-      <div class="note">Answers come from the loaded documents and are informational, not legal advice.</div>
+  <button id="jump" aria-label="Scroll to latest message">&#8595;</button>
+  <div class="composer"><div class="wrap">
+    <div class="box">
+      <textarea id="input" rows="1" maxlength="2000" placeholder="Ask about licensing rules or KP health policy" aria-label="Your question"></textarea>
+      <button id="send">Send</button>
     </div>
-  </div>
+    <div class="note">Press / to focus. Answers come from the loaded documents and are informational, not legal advice.</div>
+  </div></div>
 </main>
 
-<div class="overlay" id="login">
-  <div class="dialog">
-    <h2>Sign in</h2>
-    <p>Enter a user ID. Each ID has its own chats and memories. This demo has no password.</p>
-    <input type="text" id="user-input" placeholder="For example: ali" autocomplete="off" maxlength="40">
-    <button class="btn-primary" id="login-btn">Continue</button>
-  </div>
-</div>
+<div class="overlay" id="login"><div class="dialog">
+  <h2>Sign in</h2><p>Enter a user ID. Each ID has its own chats and memories. This demo has no password.</p>
+  <input type="text" id="user-input" placeholder="For example: ali" autocomplete="off" maxlength="40">
+  <button class="btn-primary" id="login-btn">Continue</button>
+</div></div>
 
-<div class="overlay" id="memories-overlay">
-  <div class="dialog">
-    <h2>What the assistant remembers</h2>
-    <p>Preferences and background it saved from your chats. New facts can take a few seconds to appear.</p>
-    <div id="memory-list"></div>
-    <div class="dialog-actions">
-      <button class="link-btn" id="clear-memories">Delete all</button>
-      <button class="link-btn" id="close-memories">Close</button>
-    </div>
-  </div>
-</div>
+<div class="overlay" id="memories-overlay"><div class="dialog">
+  <h2>What the assistant remembers</h2><p>Preferences and background saved from your chats. New facts can take a few seconds to appear.</p>
+  <div id="memory-list"></div>
+  <div class="actions" style="margin-top:14px"><button id="clear-memories">Delete all</button><button id="close-memories">Close</button></div>
+</div></div>
+
+<div class="overlay" id="dlg"><div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dlg-title">
+  <h2 id="dlg-title"></h2><p id="dlg-text"></p><input type="text" id="dlg-input" maxlength="100">
+  <div class="actions"><button id="dlg-cancel">Cancel</button><button class="ok" id="dlg-ok">OK</button></div>
+</div></div>
+<div id="toast" role="status"></div>
 
 <script>
 const API = "/api/v1";
+const COLL = {
+  licensing_regulations: { name: "Licensing regulations", cls: "" },
+  health_policy_kpk: { name: "KP health policy", cls: "pol" }
+};
+const STEPS = ["Understanding your question", "Choosing the right documents", "Searching and ranking passages", "Checking the evidence", "Writing the answer"];
 const EXAMPLES = [
-  "Who issues registration certificates and licences to eligible health care establishments?",
-  "What is the vision of the Khyber Pakhtunkhwa health policy?",
-  "How do the licensing regulations and the health policy address service quality?"
+  ["Who issues registration certificates and licences to eligible health care establishments?", "Licensing regulations"],
+  ["What is the vision of the Khyber Pakhtunkhwa health policy?", "KP health policy"],
+  ["How do the licensing regulations and the health policy address service quality?", "Both documents"]
 ];
-
-let userId = null;
-let threadId = null;
-let busy = false;
-
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const $ = (id) => document.getElementById(id);
 const stream = $("stream");
+let userId = null, threadId = null, busy = false, threads = [], log = [], lastQuestion = "";
 
 function saved(key, value) {
   try {
     if (value === undefined) return localStorage.getItem(key);
-    if (value === null) localStorage.removeItem(key);
-    else localStorage.setItem(key, value);
-  } catch (e) { /* storage unavailable: the session just will not be remembered */ }
+    if (value === null) localStorage.removeItem(key); else localStorage.setItem(key, value);
+  } catch (e) { /* storage unavailable: the user just will not be remembered */ }
   return null;
 }
-
 async function api(path, options = {}) {
-  const res = await fetch(API + path, {
-    ...options,
-    headers: { "Content-Type": "application/json", "X-User-Id": userId },
-  });
+  const res = await fetch(API + path, { ...options, headers: { "Content-Type": "application/json", "X-User-Id": userId } });
   if (!res.ok) {
     let message = "Request failed (" + res.status + ")";
-    try {
-      const data = await res.json();
-      if (typeof data.detail === "string") message = data.detail;
-    } catch (e) {}
+    try { const d = await res.json(); if (typeof d.detail === "string") message = d.detail; } catch (e) {}
     throw new Error(message);
   }
   return res.json();
 }
-
-/* ---------- text rendering (escapes HTML first) ---------- */
-function inline(text) {
-  return text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+function toast(text) {
+  const t = $("toast"); t.textContent = text; t.style.display = "block";
+  clearTimeout(toast.timer); toast.timer = setTimeout(() => (t.style.display = "none"), 2000);
 }
+function ago(iso) {
+  const s = (Date.now() - new Date(iso)) / 1000;
+  if (s < 60) return "now";
+  if (s < 3600) return Math.floor(s / 60) + "m";
+  if (s < 86400) return Math.floor(s / 3600) + "h";
+  return Math.floor(s / 86400) + "d";
+}
+
+/* ---------- dialogs ---------- */
+let closeDialog = null;
+function dialog({ title, text = "", value = null, ok = "OK", danger = false }) {
+  return new Promise((resolve) => {
+    const overlay = $("dlg"), input = $("dlg-input"), okBtn = $("dlg-ok");
+    $("dlg-title").textContent = title; $("dlg-text").textContent = text;
+    input.style.display = value === null ? "none" : "block"; input.value = value || "";
+    okBtn.textContent = ok; okBtn.classList.toggle("danger", danger);
+    const finish = (result) => { overlay.classList.remove("show"); closeDialog = null; resolve(result); };
+    okBtn.onclick = () => finish(value === null ? true : input.value.trim() || null);
+    $("dlg-cancel").onclick = () => finish(null);
+    input.onkeydown = (e) => { if (e.key === "Enter") okBtn.click(); };
+    closeDialog = () => finish(null);
+    overlay.classList.add("show");
+    (value === null ? okBtn : input).focus();
+  });
+}
+
+/* ---------- rendering ---------- */
+const inline = (t) => t.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 function render(text) {
   const safe = String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-  let html = "", inList = false;
+  let html = "", list = false;
   for (const line of safe.split("\n")) {
     const item = line.match(/^\s*[-*\u2022]\s+(.*)/);
-    if (item) {
-      if (!inList) { html += "<ul>"; inList = true; }
-      html += "<li>" + inline(item[1]) + "</li>";
-    } else {
-      if (inList) { html += "</ul>"; inList = false; }
-      if (line.trim()) html += "<p>" + inline(line) + "</p>";
-    }
+    if (item) { if (!list) { html += "<ul>"; list = true; } html += "<li>" + inline(item[1]) + "</li>"; }
+    else { if (list) { html += "</ul>"; list = false; } if (line.trim()) html += "<p>" + inline(line) + "</p>"; }
   }
-  return inList ? html + "</ul>" : html;
+  return list ? html + "</ul>" : html;
+}
+const scrollDown = () => { const m = $("messages"); m.scrollTop = m.scrollHeight; };
+function clearStream() { stream.innerHTML = ""; log = []; }
+
+function addSources(el, sources) {
+  const seen = new Set();
+  const unique = (sources || []).filter((s) => { const k = s.file + "|" + s.page; if (seen.has(k)) return false; seen.add(k); return true; });
+  if (!unique.length) return;
+  const row = document.createElement("div"); row.className = "sources";
+  const excerpt = document.createElement("div"); excerpt.hidden = true;
+  let openChip = null;
+  unique.forEach((s) => {
+    const info = COLL[s.collection] || { name: s.collection || "Document", cls: "" };
+    const chip = document.createElement(s.snippet ? "button" : "span");
+    chip.className = "cite " + info.cls;
+    const name = document.createElement("b"); name.textContent = s.file;
+    chip.append(name, ", p. " + s.page);
+    chip.title = info.name + (s.snippet ? ". Click to read the passage." : "");
+    if (s.snippet) {
+      chip.setAttribute("aria-expanded", "false");
+      chip.onclick = () => {
+        row.querySelectorAll(".cite").forEach((c) => c.setAttribute("aria-expanded", "false"));
+        if (openChip === chip) { excerpt.hidden = true; openChip = null; return; }
+        openChip = chip; chip.setAttribute("aria-expanded", "true");
+        const head = document.createElement("div"); head.className = "ex-head";
+        head.textContent = info.name + ", " + s.file + ", page " + s.page;
+        const text = document.createElement("div"); text.textContent = s.snippet;
+        excerpt.className = "excerpt " + info.cls; excerpt.replaceChildren(head, text); excerpt.hidden = false;
+      };
+    }
+    row.appendChild(chip);
+  });
+  el.append(row, excerpt);
 }
 
-/* ---------- messages ---------- */
-function scrollDown() { const m = $("messages"); m.scrollTop = m.scrollHeight; }
-
-function addMessage(role, content, sources) {
+function addMessage(role, content, sources, animate) {
   const el = document.createElement("div");
   if (role === "user" || role === "human") {
-    el.className = "msg user";
-    el.textContent = content;
-  } else if (role === "error") {
-    el.className = "msg error";
-    el.textContent = content;
+    el.className = "msg user"; el.textContent = content; log.push({ who: "You", content });
   } else {
-    el.className = "msg assistant";
-    el.innerHTML = render(content);
-    const seen = new Set();
-    const unique = (sources || []).filter((s) => {
-      const key = s.file + "|" + s.page;
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
-    if (unique.length) {
-      const box = document.createElement("div");
-      box.className = "sources";
-      unique.forEach((s) => {
-        const chip = document.createElement("span");
-        chip.className = "cite";
-        const name = document.createElement("b");
-        name.textContent = s.file;
-        chip.append(name, ", p. " + s.page);
-        box.appendChild(chip);
-      });
-      el.appendChild(box);
-    }
+    el.className = "msg assistant"; log.push({ who: "Assistant", content });
+    const body = document.createElement("div"); body.className = "body"; body.innerHTML = render(content);
+    if (animate && !REDUCED) body.querySelectorAll("p,li").forEach((n, i) => { n.classList.add("fade"); n.style.animationDelay = Math.min(i * 90, 900) + "ms"; });
+    el.appendChild(body); addSources(el, sources);
+    const tools = document.createElement("div"); tools.className = "tools";
+    const copy = document.createElement("button"); copy.className = "icon-btn"; copy.textContent = "Copy answer";
+    copy.onclick = async () => { try { await navigator.clipboard.writeText(content); toast("Answer copied"); } catch (e) { toast("Copy is not available here"); } };
+    tools.appendChild(copy); el.appendChild(tools);
   }
-  stream.appendChild(el);
-  scrollDown();
-  return el;
+  stream.appendChild(el); scrollDown(); return el;
 }
 
-function addTyping() {
-  const el = document.createElement("div");
-  el.className = "typing";
-  el.setAttribute("aria-label", "Assistant is working on your question");
-  el.innerHTML = "<i></i><i></i><i></i>";
-  stream.appendChild(el);
-  scrollDown();
-  return el;
+function addError(message) {
+  const el = document.createElement("div"); el.className = "msg error";
+  el.textContent = message + ". Check your connection and try again.";
+  const retry = document.createElement("button"); retry.className = "link-btn"; retry.textContent = "Try again";
+  retry.onclick = () => { el.remove(); ask(lastQuestion, true); };
+  el.appendChild(retry); stream.appendChild(el); scrollDown();
+}
+
+function addProgress() {
+  const el = document.createElement("div"); el.className = "progress"; el.setAttribute("role", "status");
+  el.innerHTML = "<i></i><i></i><i></i><span></span>";
+  const label = el.querySelector("span"); let i = 0;
+  label.textContent = STEPS[0] + "...";
+  const timer = setInterval(() => { i = Math.min(i + 1, STEPS.length - 1); label.textContent = STEPS[i] + "..."; }, 2200);
+  stream.appendChild(el); scrollDown();
+  return { stop() { clearInterval(timer); el.remove(); } };
 }
 
 function showWelcome() {
-  stream.innerHTML = "";
-  const box = document.createElement("div");
-  box.className = "welcome";
-  box.innerHTML = "<h2>Ask about healthcare licensing and KP health policy</h2>" +
-    "<p>Every answer is built from the loaded documents and shows the file and page it came from. If the documents do not cover your question, the assistant says so.</p>";
-  const list = document.createElement("div");
-  list.className = "examples";
-  EXAMPLES.forEach((q) => {
-    const b = document.createElement("button");
-    b.className = "example";
-    b.textContent = q;
-    b.onclick = () => { $("input").value = q; send(); };
-    list.appendChild(b);
+  clearStream();
+  const box = document.createElement("div"); box.className = "welcome";
+  box.innerHTML = "<h2>Ask about healthcare licensing and KP health policy</h2><p>Every answer is built from the loaded documents and shows the file and page it came from. Select a source to read the passage. If the documents do not cover your question, the assistant says so.</p>";
+  const list = document.createElement("div"); list.className = "examples";
+  EXAMPLES.forEach(([q, tag]) => {
+    const b = document.createElement("button"); b.className = "example";
+    const t = document.createElement("span"); t.textContent = q;
+    const s = document.createElement("small"); s.textContent = tag;
+    b.append(t, s); b.onclick = () => { $("input").value = q; send(); }; list.appendChild(b);
   });
-  box.appendChild(list);
-  stream.appendChild(box);
+  box.appendChild(list); stream.appendChild(box);
 }
 
 /* ---------- threads ---------- */
-async function loadThreads() {
-  const list = await api("/threads");
-  const holder = $("threads");
-  holder.innerHTML = "";
-  if (!list.length) {
-    holder.innerHTML = '<div class="empty-list">No chats yet. Ask a question to start one.</div>';
-    return list;
-  }
+function renderThreads() {
+  const q = $("search").value.trim().toLowerCase();
+  const list = threads.filter((t) => t.title.toLowerCase().includes(q));
+  const holder = $("threads"); holder.innerHTML = "";
+  if (!list.length) { holder.innerHTML = '<div class="empty-list">' + (q ? "No chats match your search." : "No chats yet. Ask a question to start one.") + "</div>"; return; }
   list.forEach((t) => {
     const row = document.createElement("div");
     row.className = "thread" + (t.thread_id === threadId ? " active" : "");
-    row.innerHTML = '<span class="t-title"></span><span class="t-act">' +
-      '<button class="icon-btn" title="Rename" aria-label="Rename chat">&#9998;</button>' +
-      '<button class="icon-btn" title="Delete" aria-label="Delete chat">&#10005;</button></span>';
+    row.innerHTML = '<span class="t-title"></span><span class="t-time"></span><span class="t-act"><button class="icon-btn" aria-label="Rename chat">Rename</button><button class="icon-btn" aria-label="Delete chat">Delete</button></span>';
     row.querySelector(".t-title").textContent = t.title;
+    row.querySelector(".t-time").textContent = ago(t.updated_at);
     row.onclick = () => openThread(t.thread_id, t.title);
     const [rename, del] = row.querySelectorAll(".icon-btn");
     rename.onclick = (e) => { e.stopPropagation(); renameThread(t); };
     del.onclick = (e) => { e.stopPropagation(); deleteThread(t); };
     holder.appendChild(row);
   });
-  return list;
 }
+async function loadThreads() { threads = await api("/threads"); renderThreads(); return threads; }
 
 async function openThread(id, title) {
-  threadId = id;
-  $("chat-title").textContent = title || "Chat";
-  $("sidebar").classList.remove("open");
-  stream.innerHTML = "";
+  threadId = id; $("chat-title").textContent = title || "Chat"; $("sidebar").classList.remove("open"); clearStream();
   try {
     const messages = await api("/threads/" + id + "/messages");
     if (!messages.length) showWelcome();
     messages.forEach((m) => addMessage(m.role, m.content));
-  } catch (e) {
-    addMessage("error", e.message);
-  }
-  loadThreads();
+  } catch (e) { addError(e.message); }
+  renderThreads();
 }
-
 function newChat() {
-  threadId = null;
-  $("chat-title").textContent = "New chat";
-  $("sidebar").classList.remove("open");
-  showWelcome();
-  loadThreads();
-  $("input").focus();
+  threadId = null; $("chat-title").textContent = "New chat"; $("sidebar").classList.remove("open");
+  showWelcome(); renderThreads(); $("input").focus();
 }
-
 async function renameThread(t) {
-  const title = prompt("Rename chat", t.title);
-  if (!title || !title.trim()) return;
+  const title = await dialog({ title: "Rename chat", value: t.title, ok: "Save" });
+  if (!title) return;
   try {
-    await api("/threads/" + t.thread_id, { method: "PATCH", body: JSON.stringify({ title: title.trim() }) });
-    if (t.thread_id === threadId) $("chat-title").textContent = title.trim();
+    await api("/threads/" + t.thread_id, { method: "PATCH", body: JSON.stringify({ title }) });
+    if (t.thread_id === threadId) $("chat-title").textContent = title;
     loadThreads();
-  } catch (e) { alert(e.message); }
+  } catch (e) { toast(e.message); }
 }
-
 async function deleteThread(t) {
-  if (!confirm("Delete \u201C" + t.title + "\u201D? This removes its messages.")) return;
-  try {
-    await api("/threads/" + t.thread_id, { method: "DELETE" });
-    if (t.thread_id === threadId) newChat(); else loadThreads();
-  } catch (e) { alert(e.message); }
+  const yes = await dialog({ title: "Delete this chat?", text: "\u201C" + t.title + "\u201D and its messages will be removed. This cannot be undone.", ok: "Delete chat", danger: true });
+  if (!yes) return;
+  try { await api("/threads/" + t.thread_id, { method: "DELETE" }); if (t.thread_id === threadId) newChat(); else loadThreads(); }
+  catch (e) { toast(e.message); }
 }
 
 /* ---------- chat ---------- */
-async function send() {
-  const input = $("input");
-  const question = input.value.trim();
-  if (!question || busy) return;
-  busy = true;
-  $("send").disabled = true;
-  let typing = null;
+async function ask(question, retry) {
+  if (busy) return;
+  busy = true; $("send").disabled = true; lastQuestion = question;
+  let progress = null;
   try {
-    if (!threadId) {
-      const created = await api("/threads", { method: "POST" });
-      threadId = created.thread_id;
-    }
-    if (stream.querySelector(".welcome")) stream.innerHTML = "";
-    addMessage("user", question);
-    input.value = "";
-    autosize();
-    typing = addTyping();
-    const reply = await api("/threads/" + threadId + "/chat", {
-      method: "POST",
-      body: JSON.stringify({ question }),
-    });
-    typing.remove();
-    addMessage("assistant", reply.answer, reply.sources);
-    const list = await loadThreads();
-    const current = list.find((t) => t.thread_id === threadId);
+    if (!threadId) { threadId = (await api("/threads", { method: "POST" })).thread_id; }
+    if (stream.querySelector(".welcome")) clearStream();
+    if (!retry) addMessage("user", question);
+    progress = addProgress();
+    const reply = await api("/threads/" + threadId + "/chat", { method: "POST", body: JSON.stringify({ question }) });
+    progress.stop();
+    addMessage("assistant", reply.answer, reply.sources, true);
+    await loadThreads();
+    const current = threads.find((t) => t.thread_id === threadId);
     if (current) $("chat-title").textContent = current.title;
-  } catch (e) {
-    if (typing) typing.remove();
-    addMessage("error", e.message + ". Check your connection and try again.");
-  } finally {
-    busy = false;
-    $("send").disabled = false;
-    input.focus();
-  }
+  } catch (e) { if (progress) progress.stop(); addError(e.message); }
+  finally { busy = false; $("send").disabled = false; $("input").focus(); }
 }
-
-function autosize() {
-  const input = $("input");
-  input.style.height = "auto";
-  input.style.height = Math.min(input.scrollHeight, 160) + "px";
+function send() {
+  const input = $("input"), question = input.value.trim();
+  if (!question || busy) return;
+  input.value = ""; autosize(); ask(question, false);
+}
+function autosize() { const i = $("input"); i.style.height = "auto"; i.style.height = Math.min(i.scrollHeight, 160) + "px"; }
+function exportChat() {
+  if (!log.length) return toast("Nothing to export yet");
+  const text = "# " + $("chat-title").textContent + "\n\n" + log.map((m) => "**" + m.who + ":** " + m.content).join("\n\n") + "\n";
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([text], { type: "text/markdown" })); a.download = "sehatguide-chat.md"; a.click();
+  URL.revokeObjectURL(a.href);
 }
 
 /* ---------- memories ---------- */
 async function openMemories() {
   $("memories-overlay").classList.add("show");
-  const box = $("memory-list");
-  box.textContent = "Loading...";
+  const box = $("memory-list"); box.textContent = "Loading...";
   try {
-    const items = await api("/memories");
-    box.innerHTML = "";
+    const items = await api("/memories"); box.innerHTML = "";
     if (!items.length) { box.innerHTML = "<p>Nothing saved yet.</p>"; return; }
     items.forEach((m) => {
-      const row = document.createElement("div");
-      row.className = "mem";
-      const text = document.createElement("span");
-      text.textContent = m.text;
-      const del = document.createElement("button");
-      del.className = "icon-btn";
-      del.textContent = "Delete";
+      const row = document.createElement("div"); row.className = "mem";
+      const text = document.createElement("span"); text.textContent = m.text;
+      const del = document.createElement("button"); del.className = "icon-btn"; del.textContent = "Delete";
       del.onclick = async () => { await api("/memories/" + m.key, { method: "DELETE" }); openMemories(); };
-      row.append(text, del);
-      box.appendChild(row);
+      row.append(text, del); box.appendChild(row);
     });
   } catch (e) { box.textContent = e.message; }
 }
 
-/* ---------- sign in ---------- */
+/* ---------- session and status ---------- */
 function startSession(id) {
-  userId = id;
-  saved("sehat_user", id);
-  $("who").textContent = id;
-  $("login").classList.remove("show");
-  threadId = null;
-  showWelcome();
-  loadThreads().catch((e) => addMessage("error", e.message));
+  userId = id; saved("sehat_user", id); $("who").textContent = id; $("login").classList.remove("show");
+  threadId = null; showWelcome(); loadThreads().catch((e) => addError(e.message));
+}
+async function ping() {
+  let ok = false;
+  try { ok = (await fetch("/health")).ok; } catch (e) {}
+  $("dot").className = "dot " + (ok ? "on" : "off"); $("dot-label").textContent = ok ? "Online" : "Offline";
 }
 
-$("login-btn").onclick = () => {
-  const id = $("user-input").value.trim();
-  if (id) startSession(id);
-};
+$("login-btn").onclick = () => { const id = $("user-input").value.trim(); if (id) startSession(id); };
 $("user-input").addEventListener("keydown", (e) => { if (e.key === "Enter") $("login-btn").click(); });
 $("switch-user").onclick = () => { saved("sehat_user", null); $("user-input").value = ""; $("login").classList.add("show"); $("user-input").focus(); };
-
-$("new-chat").onclick = newChat;
-$("send").onclick = send;
+$("new-chat").onclick = newChat; $("send").onclick = send; $("export").onclick = exportChat;
+$("search").addEventListener("input", renderThreads);
 $("input").addEventListener("input", autosize);
-$("input").addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); }
-});
+$("input").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); } });
 $("menu-btn").onclick = () => $("sidebar").classList.toggle("open");
 $("open-memories").onclick = openMemories;
 $("close-memories").onclick = () => $("memories-overlay").classList.remove("show");
 $("clear-memories").onclick = async () => {
-  if (!confirm("Delete everything the assistant remembers about you?")) return;
-  await api("/memories", { method: "DELETE" });
-  openMemories();
+  const yes = await dialog({ title: "Delete all memories?", text: "The assistant will forget everything it saved about you.", ok: "Delete all", danger: true });
+  if (yes) { await api("/memories", { method: "DELETE" }); openMemories(); }
 };
+$("messages").addEventListener("scroll", () => { const m = $("messages"); $("jump").style.display = m.scrollHeight - m.scrollTop - m.clientHeight > 240 ? "block" : "none"; });
+$("jump").onclick = scrollDown;
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") { if (closeDialog) closeDialog(); $("memories-overlay").classList.remove("show"); $("sidebar").classList.remove("open"); }
+  else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") { e.preventDefault(); newChat(); }
+  else if (e.key === "/" && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); $("input").focus(); }
+});
 
+ping(); setInterval(ping, 30000);
 const remembered = saved("sehat_user");
-if (remembered) startSession(remembered);
-else { $("login").classList.add("show"); $("user-input").focus(); }
+if (remembered) startSession(remembered); else { $("login").classList.add("show"); $("user-input").focus(); }
 </script>
 </body>
 </html>
