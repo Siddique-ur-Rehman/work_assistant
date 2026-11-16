@@ -23,8 +23,9 @@ def get_store(name):
     return _stores[name]
 
 
-def search_collections(question, collections, fetch_k=10, top_n=5):
+def search_collections(question, collections, fetch_k=10, top_n=3):
     """Hybrid-search each collection, then rerank everything and keep the best."""
+    top_n = 3 if len(collections) == 1 else 5   
     candidates = []
     for name in collections:
         docs = get_store(name).similarity_search(question, k=fetch_k)
