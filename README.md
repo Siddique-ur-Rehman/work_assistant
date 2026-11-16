@@ -41,7 +41,7 @@ flowchart TD
 
 ## Tech stack
 
-Python 3.11, uv, FastAPI, LangGraph, LangChain, Qdrant Cloud, PostgreSQL, `BAAI/bge-base-en-v1.5` embeddings (768 dimensions, local), Qdrant BM25 sparse vectors (FastEmbed), a cross-encoder reranker, an OpenAI-compatible LLM endpoint (OmniRoute) with a backup model, LangSmith tracing.
+Python 3.12, uv, FastAPI, LangGraph, LangChain, Qdrant Cloud, PostgreSQL, `BAAI/bge-base-en-v1.5` embeddings (768 dimensions, local), Qdrant BM25 sparse vectors (FastEmbed), a cross-encoder reranker, an OpenAI-compatible LLM endpoint (OmniRoute) with a backup model, LangSmith tracing.
 
 ## Setup
 
